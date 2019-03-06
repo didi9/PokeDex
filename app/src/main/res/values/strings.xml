@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PokeDex</string>
+    <string name="info_title">Info</string>
+    <string name="welcome_text">Welcome to PokeDex!</string>
+    <string name="title_activity_pokemon_data">PokemonDataActivity</string>
+    <string name="weight_title">Weight</string>
+    <string name="height_title">Height</string>
+    <string name="types_title">Type(s)</string>
+
+</resources>
