@@ -1,3 +1,11 @@
 <resources>
-    <dimen name="title_text_size">16sp</dimen>
+    <dimen name="info_box_text_size">16sp</dimen>
+    <dimen name="list_item_height">75dp</dimen>
+    <dimen name="info_text_margin">8dp</dimen>
+    <dimen name="info_textview_width">170dp</dimen>
+    <dimen name="info_textview_height">66dp</dimen>
+    <dimen name="default_margin">8dp</dimen>
+
+
+
 </resources>

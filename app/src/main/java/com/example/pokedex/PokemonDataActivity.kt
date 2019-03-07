@@ -2,12 +2,9 @@ package com.example.pokedex
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log
 import android.widget.Toast
-import com.example.pokedex.pokemonModel.PokeTypeInfo
 import com.example.pokedex.pokemonModel.PokemonData
-import com.example.pokedex.pokemonModel.RecyclerAdapter.ViewHolder.Companion.POKE_DATA_NAME
-import com.example.pokedex.pokemonModel.RecyclerAdapter.ViewHolder.Companion.POKE_DATA_TITLE_KEY
+import com.example.pokedex.RecyclerAdapter.ViewHolder.Companion.POKE_DATA_NAME
 import kotlinx.android.synthetic.main.activity_pokemon_data.*
 import kotlinx.android.synthetic.main.content_pokemon_data.*
 import retrofit2.Call
@@ -21,28 +18,21 @@ class PokemonDataActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemon_data)
         setSupportActionBar(toolbar)
-
-        val navBarTitle = intent.getStringExtra(POKE_DATA_TITLE_KEY).toUpperCase()
+        val pokeDataName = intent.getStringExtra(POKE_DATA_NAME)
+        val navBarTitle = pokeDataName.capitalize()
         supportActionBar?.title = navBarTitle
-
-        loadData()
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        loadData(pokeDataName)
+
     }
 
 
-    private fun loadData() {
-        val pokeDataName = intent.getStringExtra(POKE_DATA_NAME)
-        val pokemonService = PokemonService.create("https://pokeapi.co/api/v2/")
-        Log.d("Pok DATA URL", pokeDataName)
-
+    private fun loadData(pokeDataName : String) {
+        val pokemonService = PokemonService.create()
         val call = pokemonService.getPokemonByName(pokeDataName)
-        Log.d("CALL DATA URL", call.request().url().toString())
 
         call.enqueue(object : Callback<PokemonData> {
             override fun onResponse(call: Call<PokemonData>, response: Response<PokemonData>) {
-               // handleResponse(response.body()?.results, pokemonService)
-                Log.d("WEIGHT_DATA", "type: " + response.body()?.types?.get(0)?.type?.name)
 
                 pokemon_weight.text  = response.body()?.weight.toString()
                 pokemon_height.text  = response.body()?.height.toString()
@@ -51,11 +41,11 @@ class PokemonDataActivity : AppCompatActivity() {
                 for(i in typeArray.orEmpty()){
                     builder.append(i.type.name + "\n")
                 }
-                pokemon_types_text.text = builder.toString()
+                pokemon_types_text.text = builder.toString().trim('\n')
             }
 
             override fun onFailure(call: Call<PokemonData>, t: Throwable) {
-                Toast.makeText(this@PokemonDataActivity, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@PokemonDataActivity, getString(R.string.generic_error_message), Toast.LENGTH_SHORT).show()
             }
         })
         }

@@ -13,7 +13,7 @@
             android:theme="@style/AppTheme">
         <activity
                 android:name=".PokemonDataActivity"
-                android:label="@string/app_name"
+                android:label="@string/default_pokemon_data_title"
                 android:parentActivityName=".MainActivity"
                 android:theme="@style/AppTheme.NoActionBar">
             <meta-data

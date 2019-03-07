@@ -6,5 +6,10 @@
     <string name="weight_title">Weight</string>
     <string name="height_title">Height</string>
     <string name="types_title">Type(s)</string>
+    <string name="generic_error_message">Type(s)</string>
+    <string name="instructions_main_toast">Select a Pokemon to view details</string>
+    <string name="default_pokemon_data_title">Pokemon Data</string>
+
+
 
 </resources>

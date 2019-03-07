@@ -7,7 +7,6 @@ import android.util.Log
 import android.widget.Toast
 import com.example.pokedex.pokemonModel.AllPokemonResponse
 import com.example.pokedex.pokemonModel.Pokemon
-import com.example.pokedex.pokemonModel.RecyclerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -21,25 +20,24 @@ class MainActivity : AppCompatActivity() {
 
     private var recyclerAdapter: RecyclerAdapter? = null
     private var pokemonArrayList: ArrayList<Pokemon>? = null
-    private val BASE_URL = "https://pokeapi.co/api/v2/"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d("BEGIN", "STARTED")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initRecyclerView()
         loadData()
+        Toast.makeText(this@MainActivity, getString(R.string.instructions_main_toast), Toast.LENGTH_LONG).show()
 
     }
     private fun initRecyclerView() {
-
         val layoutManager : LayoutManager = LinearLayoutManager(this)
         pokemon_list.layoutManager = layoutManager
 
     }
 
     private fun loadData() {
-        val pokemonService = PokemonService.create(BASE_URL)
+        val pokemonService = PokemonService.create()
         val call = pokemonService.getAllPokemon()
         Log.d("CALL URL", call.request().url().toString())
 
@@ -50,14 +48,12 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<AllPokemonResponse>, t: Throwable) {
-                Toast.makeText(this@MainActivity, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MainActivity, getString(R.string.generic_error_message), Toast.LENGTH_SHORT).show()
             }
         })
 
     }
     private fun handleResponse(pokemonList: List<Pokemon>?) {
-        Log.d("RESULT", pokemonList!![2].name)
-
         pokemon_list.layoutManager = LinearLayoutManager(this)
         val itemDecor = DividerItemDecoration(this, VERTICAL)
         pokemon_list.addItemDecoration(itemDecor)

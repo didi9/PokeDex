@@ -5,80 +5,74 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/holo_red_dark"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_pokemon_data"
         tools:context=".PokemonDataActivity">
 
     <TextView
             android:text="@string/height_title"
-            android:layout_width="166dp"
-            android:layout_height="66dp"
-            android:id="@+id/height_title" android:layout_marginTop="16dp"
+            android:layout_width="@dimen/info_textview_width"
+            android:layout_height="@dimen/info_textview_height"
+            android:textColor="@android:color/white"
+            android:id="@+id/height_title" android:layout_marginTop="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@+id/weight_title" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/default_margin"
             android:textStyle="bold" android:textAlignment="center"
-            android:gravity="center" android:textSize="@dimen/title_text_size"/>
+            android:gravity="center" android:textSize="@dimen/info_box_text_size"/>
     <TextView
-            android:layout_width="181dp"
-            android:layout_height="68dp"
-            android:id="@+id/pokemon_height" android:layout_marginTop="4dp"
+            android:layout_width="@dimen/info_textview_width"
+            android:layout_height="@dimen/info_textview_height"
+            android:textColor="@android:color/white"
+            android:id="@+id/pokemon_height" android:layout_marginTop="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@+id/pokemon_weight"
             app:layout_constraintStart_toEndOf="@+id/height_title"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:textAlignment="center"
-            android:gravity="center" android:textSize="18sp" android:layout_marginStart="8dp"
-            app:layout_constraintHorizontal_bias="0.375"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/default_margin" android:textAlignment="center"
+            android:gravity="center" android:textSize="@dimen/info_box_text_size" android:layout_marginStart="@dimen/default_margin"
+    />
     <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:text="@string/info_title"
-            android:id="@+id/pokemon_name_title" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent" android:textStyle="bold"
+            android:layout_height="@dimen/default_margin"
+            android:id="@+id/white_space" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/default_margin" android:layout_marginTop="@dimen/default_margin" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/default_margin" app:layout_constraintStart_toStartOf="parent" android:textStyle="bold"
             android:textColor="@android:color/black"/>
     <TextView
             android:text="@string/weight_title"
-            android:layout_width="166dp"
-            android:layout_height="66dp"
-            android:id="@+id/weight_title" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/pokemon_name_title" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:textStyle="bold" android:textAlignment="center"
-            android:gravity="center" android:textSize="@dimen/title_text_size"/>
+            android:layout_width="@dimen/info_textview_width"
+            android:layout_height="@dimen/info_textview_height"
+            android:textColor="@android:color/white"
+            android:id="@+id/weight_title" android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintTop_toBottomOf="@+id/white_space" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/default_margin" android:textStyle="bold" android:textAlignment="center"
+            android:gravity="center" android:textSize="@dimen/info_box_text_size"/>
     <TextView
-            android:layout_width="181dp"
-            android:layout_height="68dp"
-            android:id="@+id/pokemon_weight" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/pokemon_name_title"
+            android:layout_width="@dimen/info_textview_width"
+            android:layout_height="@dimen/info_textview_height"
+            android:textColor="@android:color/white"
+            android:id="@+id/pokemon_weight" android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintTop_toBottomOf="@+id/white_space"
             app:layout_constraintStart_toEndOf="@+id/weight_title"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:textAlignment="center"
-            android:gravity="center" android:textSize="18sp" android:layout_marginStart="8dp"/>
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="@dimen/default_margin" android:textAlignment="center"
+            android:gravity="center" android:textSize="@dimen/info_box_text_size" android:layout_marginStart="@dimen/default_margin"/>
     <TextView
             android:text="@string/types_title"
-            android:layout_width="166dp"
-            android:layout_height="66dp"
-            android:id="@+id/pokemon_type_title" android:layout_marginTop="16dp"
+            android:layout_width="@dimen/info_textview_width"
+            android:layout_height="@dimen/info_textview_height"
+            android:textColor="@android:color/white"
+            android:id="@+id/pokemon_type_title" android:layout_marginTop="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@+id/height_title" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:textAlignment="center" android:gravity="center"
-            android:textStyle="bold" android:textSize="@dimen/title_text_size"/>
+            android:layout_marginStart="@dimen/default_margin" android:textAlignment="center" android:gravity="center"
+            android:textStyle="bold" android:textSize="@dimen/info_box_text_size"/>
     <TextView
-            android:layout_width="181dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/pokemon_types_text" android:layout_marginTop="8dp"
+            android:layout_width="@dimen/info_textview_width"
+            android:layout_height="@dimen/info_textview_height"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/info_box_text_size"
+            android:id="@+id/pokemon_types_text" android:layout_marginTop="@dimen/default_margin"
             app:layout_constraintTop_toBottomOf="@+id/pokemon_height" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toEndOf="@+id/pokemon_type_title"
-            android:layout_marginStart="8dp" android:textAlignment="center" android:gravity="center"/>
-    <android.support.constraint.Guideline
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:layout_constraintGuide_begin="45dp" android:id="@+id/guideline"
-            android:visibility="visible"/>
-    <!--<ListView-->
-            <!--android:layout_width="181dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/type_list_view"-->
-            <!--app:layout_constraintStart_toEndOf="@+id/pokemon_type_title" android:layout_marginStart="8dp"-->
-            <!--android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/pokemon_height"-->
-            <!--app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"-->
-            <!--app:layout_constraintHorizontal_bias="0.375"/>-->
+            android:layout_marginEnd="@dimen/default_margin" app:layout_constraintStart_toEndOf="@+id/pokemon_type_title"
+            android:layout_marginStart="@dimen/default_margin" android:textAlignment="center" android:gravity="center"/>
+
 
 </android.support.constraint.ConstraintLayout>
